@@ -1,0 +1,55 @@
+#signInUp{
+  margin-top: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+.inputSell{
+  margin-bottom: 20px;
+  margin-bottom: 25px;
+}
+
+#sellScreen{
+  margin-top: 25px;
+  margin-left: 30vh;
+  margin-right: 30vh;
+  
+}
+
+
+  #container {
+    margin-top: 5
+  }
+.titleRow {
+
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 30vh;
+  }
+.buttonRow {
+    flex-direction: 'row';
+    justify-content: 'space-around';
+    margin-left: 30vh;
+   
+  }
+.buttonFilter{
+  width:200px;
+  margin-left:20px;
+  margin-bottom: 20px;
+}
+.inputRow{
+  margin-left: 30vh;
+  margin-right: 40vh;
+}
+.buttonSearch{
+  margin-left: 45vh;
+}
+#information{
+  margin-top:20px;
+  margin-left:20px;
+  margin-right:20px
+}
+
+
+
+
+
