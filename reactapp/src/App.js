@@ -10,6 +10,7 @@ import ArticlesBought from './Component/ArticlesBought'
 import informationUser from './Component/informationUser'
 import result from './Component/Resultsearch'
 import Product from './Component/productSelected'
+import Basket from './Component/Basket'
 
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
@@ -17,7 +18,9 @@ import {Provider} from 'react-redux'
 import {createStore, combineReducers} from 'redux'
 import token from './reducers/token'
 import subcat from './reducers/filtre'
-const store = createStore(combineReducers({token,subcat}))
+import product from'./reducers/product'
+
+const store = createStore(combineReducers({token,subcat,product}))
 
 
 function App() {
@@ -36,7 +39,9 @@ function App() {
         <Route  path='/information' component={informationUser} />
         <Route  path='/resultat' component={result} />
         <Route  path='/produit' component={Product} />
+        <Route  path='/basket' component={Basket} />
         <NavigationBar/>
+        
        </Switch>
       </Router>
 

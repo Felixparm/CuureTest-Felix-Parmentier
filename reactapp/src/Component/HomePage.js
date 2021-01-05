@@ -7,6 +7,8 @@ import {Redirect} from 'react-router-dom'
 import Navigation from './navbar'
 import { connect } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../App.css';
+
 function HomePage({token,onSubmitproduct}) {
 
 const[productList,setProductList]=useState([])
@@ -31,7 +33,7 @@ return (<Col xs="12" lg="6" xl="4">
 <CardTitle tag="h5">{e.title}</CardTitle>
 <CardSubtitle tag="h6" className="mb-2 text-muted">{e.price}€</CardSubtitle>
 <CardText>{e.subcategory}</CardText>
-         <Button onClick={() => {setGoToProduct(true);onSubmitproduct(e)}}>Voir l'article</Button> 
+         <Button onClick={() => {setGoToProduct(true);onSubmitproduct(e)}}  style={{backgroundColor:'#65378a'}}>Voir l'article</Button> 
       </CardBody>
     </Card>
   </Col>)})
@@ -43,10 +45,13 @@ if(goToProduct==true){
   return (
 <div>
     <Navigation/>
-    {token}
+  <div id='HomeScreen'>
    <Row>
+ 
       {allCardProduct}
+     
   </Row>
+  </div>
 </div>
   );
 }

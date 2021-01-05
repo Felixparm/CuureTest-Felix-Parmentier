@@ -1,11 +1,36 @@
+
 #signInUp{
   margin-top: 50px;
   margin-left: 50px;
   margin-right: 50px;
+
 }
+.nameInputsignInUp{
+  color: #b872f2;
+}
+.titleSignInUp{
+  color: #65378a;
+  
+}
+.buttonSignInUp{
+  width:200px;
+  margin-left:20px;
+  margin-bottom: 20px;
+}
+
+
+
+#HomeScreen{
+  margin-top:20px;
+  margin-left: 10vh;
+  margin-right: 10vh;
+}
+
+
+
+
 .inputSell{
   margin-bottom: 20px;
-  margin-bottom: 25px;
 }
 
 #sellScreen{

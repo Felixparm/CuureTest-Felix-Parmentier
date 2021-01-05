@@ -14,6 +14,7 @@ import {
   NavbarText
 } from 'reactstrap';
 import {Link} from 'react-router-dom';
+import '../App.css';
 
 const Example = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,7 +22,7 @@ const Example = (props) => {
   const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <div>
+    <div id='allnavbar'>
       <Navbar color="light" light expand="md">
         <NavbarBrand href="/">Babies and Kids</NavbarBrand>
         <NavbarToggler onClick={toggle} />
@@ -31,7 +32,6 @@ const Example = (props) => {
               <NavLink>
               <Link to="/Accueil">Acceuil</Link>
               </NavLink>
-             
             </NavItem>
             <NavItem>
               <NavLink>
