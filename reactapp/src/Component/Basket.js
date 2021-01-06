@@ -87,7 +87,7 @@ if(goToProduct==true){
           <td></td>
         </tr>
       </tbody>
-      <Button onClick={() => {handleClick();setGoToProduct(true)}}>Valider ma commande</Button>
+      <Button onClick={() => {handleClick();setGoToProduct(true)}} style={{backgroundColor:'#65378a'}}>Valider ma commande</Button>
     </Table>
   );
 }

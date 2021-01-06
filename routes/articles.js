@@ -28,6 +28,7 @@ router.post('/create-article', async function(req, res, next) {
         category:req.body.category,
         subcategory:req.body.subcategory,
         state:req.body.state,
+        images:req.body.url,
         sellerToken:req.body.sellerToken,
         creationDate:new Date(),
         isVisible:true
@@ -48,32 +49,33 @@ router.get('/get-all-articles', async function(req, res, next) {
 
     let products = await articleModel.find({isVisible:true}).sort({creationDate:-1})
     // console.log(products)
+    console.log(products)
     res.json({products});
   
 });
 
 
-router.post('/upload', async function(req, res, next) {
+// router.post('/upload', async function(req, res, next) {
 
-console.log("hello1 req query upload", req.query)
+// console.log("hello1 req query upload", req.query)
 
-  var imagePath = './tmp/ '+uniqid()+'avatar.jpg'
-  console.log("hello2-------------- imagePath",imagePath)
+//   var imagePath = './tmp/ '+uniqid()+'avatar.jpg'
+//   console.log("hello2-------------- imagePath",imagePath)
 
-  var resultCopy = await req.files.avatar.mv(imagePath);
-    console.log("fichiers",req.files.avatar)
-    console.log("hello3-----------resultCopy", resultCopy)
+//   var resultCopy = await req.files.avatar.mv(imagePath);
+//     console.log("fichiers",req.files.avatar)
+//     console.log("hello3-----------resultCopy", resultCopy)
 
-  if(!resultCopy) {    
-    var resultCloudinary = await cloudinary.uploader.upload(imagePath);
-    res.json(resultCloudinary);
-    console.log("hello4 ----------- resultCloudinary",resultCloudinary)
-  } else {
-    res.json( {error:resultCopy} );
-  } 
+//   if(!resultCopy) {    
+//     var resultCloudinary = await cloudinary.uploader.upload(imagePath);
+//     res.json(resultCloudinary);
+//     console.log("hello4 ----------- resultCloudinary",resultCloudinary)
+//   } else {
+//     res.json( {error:resultCopy} );
+//   } 
 
-  fs.unlinkSync(imagePath);
-});
+//   fs.unlinkSync(imagePath);
+// });
 
 router.get('/filter-articles', async function(req, res, next) {
   console.log(req.query.subcat)

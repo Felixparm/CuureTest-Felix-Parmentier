@@ -14,7 +14,7 @@ const [desc,setDesc]=useState('')
 const [brand,setBrand]=useState('')
 const [price,setPrice]=useState(0)
 const [age,setAge]=useState('')
-  
+const [url,setUrl]=useState('')  
 const [catName, setCatName] = useState('');
 const [selectedCatName, setSelectedCatName] = useState(false)
 const [DisplaySubCat, setDisplaySubCat] = useState([]);
@@ -28,7 +28,7 @@ var handleClick = async () => {
     const dataArticle = await fetch(`/articles/create-article`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: `title=${title}&description=${desc}&brand=${brand}&price=${price}&age=${age}&category=${catName}&subcategory=${subCatName}&state=${selectedValueState}&sellerToken=${props.token}`
+      body: `title=${title}&description=${desc}&brand=${brand}&price=${price}&age=${age}&category=${catName}&subcategory=${subCatName}&state=${selectedValueState}&sellerToken=${props.token}&url=${url}`
     });
 
     const dataAnnonce = await dataArticle.json()
@@ -176,6 +176,15 @@ return (
         <InputGroupAddon addonType="prepend">
           <InputGroupText></InputGroupText>
         </InputGroupAddon>
+        <Input placeholder="url" 
+        onChange={(e) => setUrl(e.target.value)}
+        />
+      </InputGroup>
+
+      <InputGroup className='inputSell'>
+        <InputGroupAddon addonType="prepend">
+          <InputGroupText></InputGroupText>
+        </InputGroupAddon>
         <Input placeholder="Age" 
         onChange={(e) => setAge(e.target.value)}
         />
@@ -196,7 +205,7 @@ return (
           <option>Bon état</option>
           <option>Etat d'usage</option>
      </Input>
-         <Button outline color="primary" onClick={() => { handleClick();setIsValidated(true) }} >Mettre en vente</Button>
+         <Button  style={{backgroundColor:'#65378a'}} onClick={() => { handleClick();setIsValidated(true) }} >Mettre en vente</Button>
       </div>
     </div> 
   )}

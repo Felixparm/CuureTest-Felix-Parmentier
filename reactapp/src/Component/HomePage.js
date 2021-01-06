@@ -9,10 +9,10 @@ import { connect } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../App.css';
 
-function HomePage({token,onSubmitproduct}) {
+function HomePage({onSubmitproduct}) {
 
 const[productList,setProductList]=useState([])
-const [goToProduct,setGoToProduct]=useState(false)
+const[goToProduct,setGoToProduct]=useState(false)
 
   useEffect(() => {
     const findProducts = async () => {
@@ -28,7 +28,7 @@ console.log(productList);
 let allCardProduct= productList.map((e,i)=>{
 return (<Col xs="12" lg="6" xl="4">
     <Card>
-      <CardImg top width="100%" src="../logo192.png" alt="Card image cap" />
+      <CardImg top width="100%" src={e.images} alt="Card image cap" />
       <CardBody>
 <CardTitle tag="h5">{e.title}</CardTitle>
 <CardSubtitle tag="h6" className="mb-2 text-muted">{e.price}€</CardSubtitle>
@@ -56,9 +56,7 @@ if(goToProduct==true){
   );
 }
 
-function mapStateToProps(state) {
-  return {token:state.token}
-}
+
 function mapDispatchToProps(dispatch) {
   return {
     onSubmitproduct: function (product) {
@@ -68,7 +66,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
   )
   (HomePage)

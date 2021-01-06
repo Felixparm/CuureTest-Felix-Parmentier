@@ -12,7 +12,7 @@ const articleSchema = mongoose.Schema({
     state:String,
     articleSold:Boolean,
     sellerToken:String,
-    images:Array,
+    images:String,
     creationDate:Date,
     isVisible:Boolean
 })

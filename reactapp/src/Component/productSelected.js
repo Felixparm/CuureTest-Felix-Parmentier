@@ -1,7 +1,7 @@
 import React , {useState} from 'react';
 import {
   Card, Button, CardImg, CardTitle, CardText, CardDeck,
-  CardSubtitle, CardBody
+  CardSubtitle, CardBody,Col
 } from 'reactstrap';
 import Navigation from './navbar'
 import { connect } from 'react-redux';
@@ -19,18 +19,22 @@ if(goToProduct==true){
     <div>
 
     <Navigation/>
-    
+    <Col xs="12" lg="6" xl="4">
     <CardDeck>
       <Card>
-        <CardImg top width="400px" src="../logo192.png" alt="Card image cap" />
+        <CardImg top width="100px" src={props.product.images} alt="Card image cap" />
         <CardBody>
   <CardTitle tag="h5">{props.product.title}</CardTitle>
-          <CardSubtitle tag="h6" className="mb-2 text-muted">{props.product.subcategory}</CardSubtitle>
-          <CardText>{props.product.description}</CardText>
-          <Button onClick={() => {setGoToProduct(true)}}>Acheter ({props.product.price}€)</Button>
+          <CardSubtitle tag="h6" className="mb-2 text-muted">{props.product.category}/{props.product.subcategory}</CardSubtitle>
+          <CardText>Marque: {props.product.brand}</CardText>
+          <CardText>Etat: {props.product.state}</CardText>
+          <CardText>Description {props.product.description}</CardText>
+          <Button onClick={() => {setGoToProduct(true)}} style={{backgroundColor:'#65378a'}}>Acheter ({props.product.price}€)</Button>
         </CardBody>
       </Card>
-      </CardDeck> 
+      </CardDeck>
+      </Col>
+     
       </div>
       )
       }

@@ -4,7 +4,6 @@ import SignInUp from './Component/SignInUp'
 import HomePage from './Component/HomePage'
 import SellScreen from './Component/SellScreen'
 import FilterScreen from './Component/FilterScreen'
-import NavigationBar from'./Component/navbar'
 import ArticlesSell from './Component/ArticlesSell'
 import ArticlesBought from './Component/ArticlesBought'
 import informationUser from './Component/informationUser'
@@ -40,7 +39,7 @@ function App() {
         <Route  path='/resultat' component={result} />
         <Route  path='/produit' component={Product} />
         <Route  path='/basket' component={Basket} />
-        <NavigationBar/>
+        {/* <NavigationBar/> */}
         
        </Switch>
       </Router>

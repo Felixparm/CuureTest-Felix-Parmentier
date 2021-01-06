@@ -18,17 +18,21 @@
   margin-bottom: 20px;
 }
 
-
-
 #HomeScreen{
   margin-top:20px;
   margin-left: 10vh;
   margin-right: 10vh;
 }
-
-
-
-
+#allnavbar{
+  background-color: #b872f2;
+}
+#imgNav{
+  width: 100px;
+  height: 100px;
+}
+.linkNav{
+  color:#65378a
+}
 .inputSell{
   margin-bottom: 20px;
 }
@@ -40,7 +44,18 @@
   
 }
 
+#productScreen{
 
+    /* Fixe l'image en haut à gauche de la page */
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    /* Préserve le ratio de l'image */
+    min-width: 100%;
+    min-height: 100%;
+   
+   
+}
   #container {
     margin-top: 5
   }
@@ -49,6 +64,7 @@
     margin-top: 30px;
     margin-bottom: 30px;
     margin-left: 30vh;
+    color: #65378a;
   }
 .buttonRow {
     flex-direction: 'row';

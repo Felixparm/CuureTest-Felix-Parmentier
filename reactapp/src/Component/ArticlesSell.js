@@ -25,12 +25,12 @@ console.log(productList);
 let sellProduct= productList.map((e,i)=>{
 return (<Col xs="12" lg="6" xl="4">
     <Card>
-      <CardImg top width="100%" src="../logo192.png" alt="Card image cap" />
+      <CardImg top width="100%" src={e.images} alt="Card image cap" />
       <CardBody>
 <CardTitle tag="h5">{e.title}</CardTitle>
-<CardSubtitle tag="h6" className="mb-2 text-muted">{e.price}</CardSubtitle>
+<CardSubtitle tag="h6" className="mb-2 text-muted">{e.price}€</CardSubtitle>
 <CardText>{e.description}</CardText>
-        <Button>Voir l'article</Button>
+        <Button style={{backgroundColor:'#65378a'}}>Voir l'article</Button>
       </CardBody>
     </Card>
   </Col>)})

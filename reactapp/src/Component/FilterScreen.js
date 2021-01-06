@@ -129,7 +129,8 @@ InputSubCat = <Input type="select" name="select" onChange={(e) => {setSubCatName
 buttonValidation=<div className='buttonSearch'><Button
 className='buttonFilter'
 title='Rechercher'
-onClick={() =>{props.onSubCatSelected(subCatName);setGoToResultScreen(true)}}
+onClick={() =>{props.onSubCatSelected(subCatName);setGoToResultScreen(true)}} 
+style={{backgroundColor:'#65378a'}}
  >Rechercher</Button></div>
 }
 if(goToResultScreen==true){
@@ -152,7 +153,7 @@ if(goToResultScreen==true){
             setColorButton5(false);
             setColorButton6(false)
           }}
-        >Se déplacer</Button>
+          style={{backgroundColor:'#65378a'}}>Se déplacer</Button>
 
 
         <Button title="S'habiller"
@@ -166,7 +167,7 @@ if(goToResultScreen==true){
             setColorButton5(false);
             setColorButton6(false)
           }}
-        >S'habiller</Button>
+          style={{backgroundColor:'#65378a'}}>S'habiller</Button>
       </div>
 
       <div className='buttonRow'>
@@ -182,7 +183,7 @@ if(goToResultScreen==true){
             setColorButton5(false);
             setColorButton6(false)
           }}
-        >Se baigner</Button>
+          style={{backgroundColor:'#65378a'}}>Se baigner</Button>
 
         <Button 
           className='buttonFilter'
@@ -195,7 +196,7 @@ if(goToResultScreen==true){
             setColorButton5(false);
             setColorButton6(false)
           }}
-        >Dormir</Button>
+          style={{backgroundColor:'#65378a'}}>Dormir</Button>
       </div>
 
       <div className='buttonRow'>
@@ -210,7 +211,7 @@ if(goToResultScreen==true){
             setColorButton4(false);
             setColorButton6(false)
           }}
-        >Manger</Button>
+          style={{backgroundColor:'#65378a'}}>Manger</Button>
         <Button 
          className='buttonFilter'
           onClick={() => {
@@ -223,7 +224,7 @@ if(goToResultScreen==true){
             setColorButton5(false);
             
           }}
-        >Autre</Button>
+          style={{backgroundColor:'#65378a'}}>Autre</Button>
       </div>
       <div class='inputRow'>
         {InputSubCat}
