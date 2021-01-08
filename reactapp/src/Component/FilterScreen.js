@@ -122,6 +122,9 @@ if(DisplaySubCat!='')
     return (<option> {e.subcategory}</option>)
 })
 
+// Au clic sur 'Rechercher' : - nous envoyons au reducer 'filter' la sous-catégorie sélectionnée par l'utilisateur
+//                            - nous sommes redirigé vers le composant ResultSearch
+
 InputSubCat = <Input type="select" name="select" onChange={(e) => {setSubCatName(e.target.value)}} className='inputSell'>
                  {optionSubCat}
               </Input>
@@ -133,7 +136,8 @@ onClick={() =>{props.onSubCatSelected(subCatName);setGoToResultScreen(true)}}
 style={{backgroundColor:'#65378a'}}
  >Rechercher</Button></div>
 }
-if(goToResultScreen==true){
+if(goToResultScreen==true)
+{
   return <Redirect to='/resultat'/>
 }
 

@@ -3,18 +3,9 @@ var router = express.Router();
 var articleModel = require('../models/articles');
 var orderModel = require('../models/orders');
 
-var uniqid = require('uniqid');
-const fs = require('fs');
-const { exec } = require('child_process');
-var cloudinary = require('cloudinary').v2;
-
-cloudinary.config({ 
-  cloud_name: 'cedric', 
-  api_key: '544843767135618', 
-  api_secret: 'FRzV3kMqg2-g8mpCduExkzLFY1o' 
-});
 
 
+// Création d'un article , route utilisée dans SellScreen
 
 router.post('/create-article', async function(req, res, next) {
   console.log("hello1 req query --------------create article",req.body)
@@ -43,7 +34,7 @@ router.post('/create-article', async function(req, res, next) {
       res.json({result,saveArticle})
 });
 
-
+// Récupération des articles encore en vente (c'est à dire isVisible==true) , route utilisée dans l'écran d'Accueil
 router.get('/get-all-articles', async function(req, res, next) {
 
 
@@ -54,28 +45,8 @@ router.get('/get-all-articles', async function(req, res, next) {
   
 });
 
-
-// router.post('/upload', async function(req, res, next) {
-
-// console.log("hello1 req query upload", req.query)
-
-//   var imagePath = './tmp/ '+uniqid()+'avatar.jpg'
-//   console.log("hello2-------------- imagePath",imagePath)
-
-//   var resultCopy = await req.files.avatar.mv(imagePath);
-//     console.log("fichiers",req.files.avatar)
-//     console.log("hello3-----------resultCopy", resultCopy)
-
-//   if(!resultCopy) {    
-//     var resultCloudinary = await cloudinary.uploader.upload(imagePath);
-//     res.json(resultCloudinary);
-//     console.log("hello4 ----------- resultCloudinary",resultCloudinary)
-//   } else {
-//     res.json( {error:resultCopy} );
-//   } 
-
-//   fs.unlinkSync(imagePath);
-// });
+// Récupération des articles encore en vente (c'est à dire isVisible==true) et repondant à la souscatégorie sélectionnée (subcat) par l'utilisateur , 
+// route utilisée dans l'écran d'Accueil
 
 router.get('/filter-articles', async function(req, res, next) {
   console.log(req.query.subcat)
@@ -84,6 +55,8 @@ router.get('/filter-articles', async function(req, res, next) {
   res.json({products})
   
 }); 
+
+// Récupération des articles vendus par un utilisateur donné
 
 router.get('/get-article-by-seller', async function(req, res, next) {
 
@@ -94,7 +67,7 @@ router.get('/get-article-by-seller', async function(req, res, next) {
 
 });
 
-
+// Récupération des article acheté par un utilisateur donné
 
 router.get('/get-article-by-buyer', async function(req, res, next) {
 
@@ -121,22 +94,8 @@ console.log(articlesTabValidate);
   
 res.json({articlesTab,articlesTabValidate});
 });
-// ---------------- travail sur route delete dans mes annonces
 
-router.post('/cancel-article', async function(req, res, next) {
 
-  var returnDb = await articleModel.deleteOne({ _id: req.body.idArticle})
-  console.log('------requ body-----------------',returnDb)
- 
 
-  var result = false
-  if(returnDb.deletedCount == 1){
-    result = true
-  }
-
-  res.json({result})
-});
-
-// ---------------- fin travail sur route delete dans mes annonces
 
 module.exports = router; 

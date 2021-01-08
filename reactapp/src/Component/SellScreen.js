@@ -22,6 +22,7 @@ const [subCatName, setSubCatName] = useState('');
 const [selectedValueState, setSelectedValueState] = useState("");
 const [isValidated,setIsValidated]=useState(false)
 
+// Au click sur 'mettre en vente' nous envoyons l'ensemble des informations sur l'artcile mis en vente en BDD avec le token du vendueur (que nous récupérons du reducer)
 
 var handleClick = async () => {
 
@@ -34,11 +35,10 @@ var handleClick = async () => {
     const dataAnnonce = await dataArticle.json()
 
 }
+// Au clic sur 'mettre en vente' nous sommes redirigé vers le composant représentant 
 if(isValidated==true){
  return  <Redirect to ='Vendu'/>
 }
-
-
 
 var subCat1 = [
     { subcategory: "Sièges Auto" },

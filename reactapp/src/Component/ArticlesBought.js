@@ -10,6 +10,10 @@ import { connect } from 'react-redux';
 function ArticlesBought(props) {
 
   const[productList,setProductList]=useState([])
+
+// Au chargement du composant , on récupére l'ensemble des artciles achetés par l'utilisateur.
+// Cela est possible grâce au token de l'utilisateur (initialement stocké dans un reducer) que nous envoyons au backend
+
   useEffect(() => {
 
     const findProducts = async () => {
@@ -24,7 +28,7 @@ function ArticlesBought(props) {
 
   }, [])
 
-
+// Mise en frome de l'ensemble des informations des articles récupéreés de la BDD sous frome de carte
 
   let articleBought= productList.map((e,i)=>{
     return (<Col xs="12" lg="6" xl="4">
@@ -38,6 +42,8 @@ function ArticlesBought(props) {
           </CardBody>
         </Card>
       </Col>)}) 
+
+  
   return (
 <div>
     <Navigation/>

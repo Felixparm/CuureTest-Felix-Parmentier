@@ -14,7 +14,8 @@ const [goToProduct,setGoToProduct]=useState(false)
 if(goToProduct==true){
   return <Redirect to='/basket'/>
 }
-
+// On récupére sur ce composant l'ensemble des informations liées à l'article sélectionné via le reducer product
+// Ces informations sont présentées sous forme d'une carte
   return (
     <div>
 

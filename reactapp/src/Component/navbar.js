@@ -21,6 +21,8 @@ const Example = (props) => {
 
   const toggle = () => setIsOpen(!isOpen);
 
+// Barre de navigation redirigeant vers différents composants
+
   return (
     <div id='allnavbar'>
       <Navbar light expand="md">

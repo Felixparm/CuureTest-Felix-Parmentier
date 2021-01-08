@@ -14,6 +14,10 @@ console.log('subcat from resultscreen',props.subcat)
   const[productList,setProductList]=useState([])
   const [goToProduct,setGoToProduct]=useState(false)
 
+// - on récupére du reducer 'filtre' la sous-catégrie sélectionnée par l'utilisateur sur le composant FilterScreen
+// Au chargement du composant:
+// - On envoie cette sous-catégorie au backend et on récupére l'ensemble des artciles en vente apartenant à cette sous-catégorie.
+
   useEffect(() => {
     const findProducts = async () => {
       const data = await fetch(`articles/filter-articles?subcat=${props.subcat}`)
@@ -25,6 +29,8 @@ console.log('subcat from resultscreen',props.subcat)
   },[])
 
 console.log('from resultscreen',productList);
+
+// Mise en frome de l'ensemble des informations des articles récupérés sous forme de carte
 
 let searchProduct= productList.map((e,i)=>{
 return (<Col xs="12" lg="6" xl="4">

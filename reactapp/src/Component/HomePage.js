@@ -14,6 +14,8 @@ function HomePage({onSubmitproduct}) {
 const[productList,setProductList]=useState([])
 const[goToProduct,setGoToProduct]=useState(false)
 
+// Au chargement du composant, on récupére l'ensemble des artciles en ventes présents dans la BDD 
+
   useEffect(() => {
     const findProducts = async () => {
       const data = await fetch(`/articles/get-all-articles`)
@@ -24,6 +26,8 @@ const[goToProduct,setGoToProduct]=useState(false)
   },[])
 
 console.log(productList);
+
+// Mise en frome de l'ensemble des informations des articles récupéreés de la BDD sous frome de carte
 
 let allCardProduct= productList.map((e,i)=>{
 return (<Col xs="12" lg="6" xl="4">
@@ -37,6 +41,10 @@ return (<Col xs="12" lg="6" xl="4">
       </CardBody>
     </Card>
   </Col>)})
+
+// Au clic sur 'voir l'artcile' :
+// - J'envoie au reducer 'product' l'ensemble des informations liées à l'article sélectionné. 
+// - je suis redirigé vers le composant produit. 
 
 if(goToProduct==true){
   return <Redirect to='/produit'/>

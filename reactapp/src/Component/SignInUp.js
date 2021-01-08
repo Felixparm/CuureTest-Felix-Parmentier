@@ -38,8 +38,9 @@ function SigninScreens({  onSubmitToken }) {
     setPostalCode("")
   }
 
-
-
+// Au clic sur 'se connecter' , j'envoie au backend mon mot de passe et mon email, si ils sont valides alors le
+// backend m'envoit en retour : - une autorisation (result==true) qui me peremttra d etre redirigé vers la page d'accueil
+//                            : - le token de l'utilsateur qui sera stocké dans le reducer
   var handleClickSignIn = async () => {
 
     const dataUsers = await fetch(`/users/sign-in`, {
@@ -57,6 +58,11 @@ function SigninScreens({  onSubmitToken }) {
     
   }
  
+// Au clic sur 'se créer un compte' , j'envoie au backend l'ensemble des informations liés à la création de mon compte. Si cette inscription est valide
+// mon compte sera alors enregistré en BDD
+// Le backend m'envoit en retour : - une autorisation (result==true) qui me peremttra d etre redirigé vers la page d'accueil
+//                                 - le token de l'utilsateur qui sera stocké dans le reducer
+
   var handleClickSignUp = async () => {
 
     const dataUsers = await fetch(`/users/sign-up`, {

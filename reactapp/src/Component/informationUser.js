@@ -10,7 +10,8 @@ function InformationUser(props){
   console.log(props.token)
 
   const[userInfo, setUserInfo]=useState('');
-
+  // Au chargement du composant , on récupére l'ensemble des informations liées à l'utilisateur.
+  // Cela est possible grâce au token de l'utilisateur (initialement stocké dans un reducer) que nous envoyons au backend
   useEffect(() => {
     const findUser = async () => {
       const rawData = await fetch(`users/display-profile?token=${props.token}`)
@@ -21,6 +22,8 @@ function InformationUser(props){
     findUser()
   }, [])
  console.log(userInfo)
+
+ // Mise en frome des informations recues sous forme de liste
   return (
     <div>
     <Navigation/>

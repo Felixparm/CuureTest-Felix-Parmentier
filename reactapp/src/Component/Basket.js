@@ -9,6 +9,10 @@ function Basket (props) {
     const [firstName, setFirstName] = useState('')
     const [goToProduct,setGoToProduct]=useState(false)
 
+    // Au chargement du composant: 
+    // - Récupération des informations liés à l'acheteur. 
+    //   (Cela est possible grâce au token de l'utilisateur stocké dans un reducer que nous envoyons au backend)
+
     useEffect(() => {
         const findBuyer = async () => {
           const data = await fetch(`/users/get-user?UserToken=${props.token}`)
@@ -18,6 +22,9 @@ function Basket (props) {
         }
     
         findBuyer();
+
+    // - Récupération des informations liés au vendeur.
+    //   (Cela est possible grâce au token du vendeur de l'article sélectionné stocké dans un reducer que nous envoyons au backend)
     
       }, [])
       useEffect(() => {
@@ -32,6 +39,8 @@ function Basket (props) {
     
       }, [])
 
+    // Au clic sur 'valider ma commande' j'envoie au backend l'ID de l'article et le token de l'acheteur afin de créer une nouvelle commande
+
       var handleClick = async () => {
 
         const dataOrder = await fetch(`/orders/validate-order`, {
@@ -43,6 +52,7 @@ function Basket (props) {
         const dataAnnonce = await dataOrder.json()
     
       }
+
 if(goToProduct==true){
   return <Redirect to='/Achete'/>
 }
@@ -60,7 +70,7 @@ if(goToProduct==true){
          
        </tr>
         <tr>
-         
+      
           <td>Article :{props.product.title}</td>
           
           

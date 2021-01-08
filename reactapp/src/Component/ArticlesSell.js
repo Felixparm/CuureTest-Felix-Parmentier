@@ -11,6 +11,9 @@ function ArticlesSell({token}) {
 
   const[productList,setProductList]=useState([])
 
+// Au chargement du composant , on récupére l'ensemble des artciles vendus par l'utilisateur.
+// Cela est possible grâce au token de l'utilisateur (initialement stocké dans un reducer) que nous envoyons au backend
+
   useEffect(() => {
     const findProducts = async () => {
       const data = await fetch(`articles/get-article-by-seller?SellerToken=${token}`)
@@ -21,6 +24,8 @@ function ArticlesSell({token}) {
   },[])
 
 console.log(productList);
+
+// Mise en frome de l'ensemble des informations des articles récupéreés de la BDD sous frome de carte
 
 let sellProduct= productList.map((e,i)=>{
 return (<Col xs="12" lg="6" xl="4">
