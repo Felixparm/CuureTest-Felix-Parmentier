@@ -8,7 +8,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var articlesRouter = require('./routes/articles');
-var ordersRouter = require('./routes/orders');
+
 
 
 
@@ -31,7 +31,7 @@ app.use(express.static(path.join(__dirname, 'reactapp/build')))
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/articles', articlesRouter);
-app.use('/orders', ordersRouter);
+
 
 
 // catch 404 and forward to error handler

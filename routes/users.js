@@ -48,17 +48,12 @@ router.post('/sign-up', async function(req,res,next){
       password: SHA256(req.body.password+salt).toString(encBase64),
       token:uid2(32)
     })
-  
     saveUser = await newUser.save()
-    
-    
     if(saveUser){
       result = true
       console.log(saveUser);
     }
   }
-  
-
   res.json({result, saveUser, error})
 })
 
@@ -104,25 +99,5 @@ if(user){
   }
   res.json({result, user, token, error})
 })
-
-// Routes peremttant de récupérer l'ensemble des informations d'un utilisateur via son token
-
-router.get('/display-profile', async function(req, res, next) {
-  let data = await userModel.findOne({token:req.query.token})
-  res.json(data);
-});
-
-
-router.get('/get-user', async function(req, res, next) {
-  console.log('route get seller --- -- --',req.query);
-  let data = await userModel.findOne({token:req.query.UserToken})
-  console.log(data)
-  res.json({data});
-});
-
-
-
-
-
 
 module.exports = router;
